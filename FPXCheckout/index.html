@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FPX Chekcout Form</title>
+</head>
+<body>
+	<h1>Payment Input Form</h1>
+	<form id="api-form">
+		<label for="api-key">API Key:</label>
+		<input type="text" id="api-key" name="api-key"><br><br>
+		<button type="button" onclick="sendRequest()">Checkout</button>
+	</form>
+
+	<script>
+		function sendRequest() {
+			var apiKey = document.getElementById("api-key").value;
+			var payload = { "key": "value" }; // Replace with your payload
+
+			fetch('https://your-api-url.com/api-endpoint', {
+			  method: 'POST',
+			  headers: {
+			    'Authorization': apiKey,
+			    'Content-Type': 'application/json'
+			  },
+			  body: JSON.stringify(payload)
+			})
+			.then(response => response.json())
+			.then(data => console.log(data))
+			.catch(error => console.error(error));
+		}
+	</script>
+</body>
+</html>
